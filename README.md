@@ -3,7 +3,7 @@
 This project was built as a hands-on learning exercise to master the core concepts of React. It is a simple Task Manager application that allows users to create projects, manage tasks, and delete items.
 
 
-### 1. React Hooks
+### React Hooks
 - **`useState`**: Used extensively for managing local component state (e.g., controlling modals, input visibility, and selected project IDs).
 - **`useContext`**: Implemented to manage global state (Projects and Tasks) across the application without prop drilling.
 - **`useRef`**: Used to directly access DOM elements (e.g., focusing the input field in the sidebar and detecting clicks outside the component).
