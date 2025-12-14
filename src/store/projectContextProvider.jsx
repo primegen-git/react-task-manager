@@ -1,10 +1,20 @@
 import { ProjectContext } from "./ProjectContext.js";
 
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+
+const STORAGE_KEY = "projects";
 
 export const ProjectContextProvider = ({ children }) => {
 
-  const [projects, setProjects] = useState([])
+  const [projects, setProjects] = useState(() => {
+    const savedProjects = sessionStorage.getItem(STORAGE_KEY);
+    return savedProjects ? JSON.parse(savedProjects) : []
+  })
+
+
+  useEffect(() => {
+    sessionStorage.setItem(STORAGE_KEY, JSON.stringify(projects));
+  }, [projects])
 
   const addProject = useCallback((title) => {
     const project = {
